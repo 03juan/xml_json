@@ -73,9 +73,7 @@ defmodule XmlJson.SaxHandler do
   end
 
   defp try_parse(text) do
-    with :error <- integer_parse(text),
-         :error <- float_parse(text),
-         :error <- boolean_parse(String.downcase(text)) do
+    with :error <- boolean_parse(String.downcase(text)) do
       String.trim(text, " ")
     else
       parsed -> parsed
